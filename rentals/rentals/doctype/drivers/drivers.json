@@ -1,0 +1,103 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:DR-{###}d{MMYY}",
+ "creation": "2025-10-23 00:55:59.327406",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "firstname",
+  "licensenumber",
+  "fullname",
+  "column_break_ibyl",
+  "lastname",
+  "phonenumber",
+  "profileimage"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled "
+  },
+  {
+   "fieldname": "firstname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "firstName",
+   "reqd": 1
+  },
+  {
+   "fieldname": "licensenumber",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "LicenseNumber",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ibyl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lastname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "lastName",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phonenumber",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "PhoneNumber",
+   "reqd": 1
+  },
+  {
+   "fieldname": "profileimage",
+   "fieldtype": "Attach Image",
+   "label": "ProfileImage",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fullname",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "FullName",
+   "options": "f\"{doc.firstname} {doc.lastname}\""
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "profileimage",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-10-29 00:45:37.244149",
+ "modified_by": "Administrator",
+ "module": "Rentals",
+ "name": "Drivers",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "firstname"
+}
