@@ -59,6 +59,7 @@
    "fieldname": "vehicle",
    "fieldtype": "Link",
    "label": "Vehicle",
+   "link_filters": "[[\"Vehicle\",\"year\",\">\",1999]]",
    "options": "Vehicle",
    "reqd": 1
   }
@@ -66,7 +67,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-09 00:23:47.074668",
+ "modified": "2026-01-03 16:30:22.106599",
  "modified_by": "Administrator",
  "module": "Rentals",
  "name": "Ride Order",
@@ -84,6 +85,10 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Vehicle Manager"
   }
  ],
  "row_format": "Dynamic",
