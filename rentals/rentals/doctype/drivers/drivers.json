@@ -13,7 +13,7 @@
   "fullname",
   "column_break_ibyl",
   "lastname",
-  "phonenumber",
+  "phone_number",
   "profileimage"
  ],
  "fields": [
@@ -49,17 +49,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "phonenumber",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "PhoneNumber",
-   "reqd": 1
-  },
-  {
    "fieldname": "profileimage",
    "fieldtype": "Attach Image",
-   "label": "ProfileImage",
-   "reqd": 1
+   "label": "ProfileImage"
   },
   {
    "fieldname": "fullname",
@@ -67,13 +59,20 @@
    "is_virtual": 1,
    "label": "FullName",
    "options": "f\"{doc.firstname} {doc.lastname}\""
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "PhoneNumber",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,
  "image_field": "profileimage",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-29 00:45:37.244149",
+ "modified": "2026-01-03 21:28:00.470614",
  "modified_by": "Administrator",
  "module": "Rentals",
  "name": "Drivers",
