@@ -9,6 +9,7 @@
   "name1",
   "column_break_wghx",
   "percentage",
+  "status",
   "section_break_uyxh",
   "marksheet"
  ],
@@ -39,12 +40,18 @@
    "label": "Marksheet",
    "options": "Marksheet",
    "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Graduate\nActive"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-11 01:02:57.601249",
+ "modified": "2026-01-12 23:03:25.406504",
  "modified_by": "Administrator",
  "module": "Rentals",
  "name": "Student",
