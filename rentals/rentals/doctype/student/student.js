@@ -14,7 +14,6 @@ frappe.ui.form.on("Student", {
             
             
         }
-        console.log(total_marks);
         
 
         let percentage = total_marks/arr.length;
