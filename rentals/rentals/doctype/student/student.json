@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "name1",
+  "load_default_subjects",
   "column_break_wghx",
   "percentage",
   "status",
@@ -46,12 +47,17 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Graduate\nActive"
+  },
+  {
+   "fieldname": "load_default_subjects",
+   "fieldtype": "Button",
+   "label": "Load Default Subjects"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-12 23:03:25.406504",
+ "modified": "2026-01-13 02:01:48.563151",
  "modified_by": "Administrator",
  "module": "Rentals",
  "name": "Student",

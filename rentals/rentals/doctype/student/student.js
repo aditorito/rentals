@@ -4,7 +4,7 @@
 frappe.ui.form.on("Student", {
     refresh(frm) {
 
-          if (frm.doc.status != 'Active') {
+        if (frm.doc.status != 'Active') {
 
             frm.fields_dict["marksheet"].grid.update_docfield_property(
                 "marks",
@@ -31,6 +31,32 @@ frappe.ui.form.on("Student", {
 
 
         frm.set_value('percentage', percentage)
+    },
+
+    clear_empty_rows(frm) {
+        console.log("this is runnig");
+        
+        frm.doc.marksheet = (frm.doc.marksheet || []).filter(row => row.subject);
+    },
+
+
+    Add_default_Subject(frm) {
+        const default_sub = ['Maths', 'Science', 'English', 'Hindi'];
+
+        for (let i = 0; i < default_sub.length; i++) {
+            let row = frm.add_child(`marksheet`, {
+                subject: default_sub[i],
+                marks: 35
+            });
+
+            frm.refresh_field("marksheet");
+
+        }
+
+    },
+    load_default_subjects(frm) {
+        frm.trigger('clear_empty_rows');
+        frm.trigger('Add_default_Subject')
     }
 });
 
@@ -42,9 +68,9 @@ frappe.ui.form.on("Marksheet", {
         frm.refresh_field("marksheet");
     },
     marks(frm, cdt, cdn) {
-        let row = locals[cdt][cdn];       
+        let row = locals[cdt][cdn];
         let previous_marks = row._previous_value || 0;
-        
+
 
         if (row.marks > 100) {
 
@@ -53,9 +79,9 @@ frappe.ui.form.on("Marksheet", {
                 message: "Marks cannot be greater than 100",
                 indicator: "red"
             });
-            
+
             console.log(previous_marks);
-            
+
             frappe.model.set_value(cdt, cdn, "marks", previous_marks);
         }
     }
