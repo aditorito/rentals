@@ -46,7 +46,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Graduate\nActive"
+   "options": "Active\nGraduate"
   },
   {
    "fieldname": "load_default_subjects",
@@ -57,7 +57,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-13 02:01:48.563151",
+ "modified": "2026-01-13 23:31:31.832495",
  "modified_by": "Administrator",
  "module": "Rentals",
  "name": "Student",

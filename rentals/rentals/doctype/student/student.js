@@ -4,6 +4,30 @@
 frappe.ui.form.on("Student", {
     refresh(frm) {
 
+        if (!frm.bonus_area) {
+            frm.bonus_area = $('<div style="margin:15px 0;"></div>')
+                .appendTo(frm.fields_dict.marksheet.wrapper);
+                console.log(wrapper);
+                
+        }
+
+        if (!frm.bonus_control) {
+            frm.bonus_control = frappe.ui.form.make_control({
+                parent: frm.bonus_area,
+                df: {
+                    fieldtype: "Float",
+                    label: "Bonus Marks",
+                    fieldname: "bonus_marks",
+                    default: 0,
+                    onchange() {
+                        calculate_percentage_with_bonus(frm);
+                    }
+                }
+            });
+
+            frm.bonus_control.refresh();
+        }
+
         if (frm.doc.status != 'Active') {
 
             frm.fields_dict["marksheet"].grid.update_docfield_property(
@@ -13,8 +37,14 @@ frappe.ui.form.on("Student", {
             );
 
         }
-        frm.refresh_field("marksheet");
+        let percent = frm.doc.percentage || 0;
 
+        frm.refresh_field("marksheet");
+        frm.dashboard.add_progress(
+            "Result",
+            percent,
+            percent
+        )
 
     },
     validate(frm) {
@@ -31,11 +61,15 @@ frappe.ui.form.on("Student", {
 
 
         frm.set_value('percentage', percentage)
+
+
+
+
     },
 
     clear_empty_rows(frm) {
         console.log("this is runnig");
-        
+
         frm.doc.marksheet = (frm.doc.marksheet || []).filter(row => row.subject);
     },
 
@@ -79,8 +113,6 @@ frappe.ui.form.on("Marksheet", {
                 message: "Marks cannot be greater than 100",
                 indicator: "red"
             });
-
-            console.log(previous_marks);
 
             frappe.model.set_value(cdt, cdn, "marks", previous_marks);
         }
